@@ -1,5 +1,6 @@
 package com.mikemenne.launchcode.strategy.weapons;
 
+import com.mikemenne.launchcode.strategy.WarriorException;
 import com.mikemenne.launchcode.strategy.Weapon;
 
 /**
@@ -17,8 +18,15 @@ public class BowAndArrow implements Weapon{
         this.sound = "Whoosh";
     }
 
-    public void strike() {
+    public void strike() throws WarriorException {
+        if (outOfArrows()) {
+            throw new WarriorException("I'm all out of arrows");
+        }
+
         System.out.println(sound);
     }
 
+    private boolean outOfArrows() {
+        return false;
+    }
 }

@@ -26,7 +26,11 @@ public class Warrior {
     }
 
     public void strike() {
-        weapon.strike();
+        try {
+            weapon.strike();
+        } catch (WarriorException e) {
+            System.out.println(String.format("Uh-Oh %s", e.getMessage()));
+        }
     }
 
     @Override

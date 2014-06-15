@@ -12,6 +12,31 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Game {
 
+    private Arsenal arsenal;
+
+    public void start() {
+        Warrior archer = new Warrior("archer", arsenal.bowAndArrow());
+        Warrior longBow = new Warrior("long-bow", arsenal.bowAndArrow());
+        Warrior soldier = new Warrior("soldier", arsenal.sword("excalibur"));
+
+        archer.strike();
+        soldier.strike();
+        archer.toString();
+
+        Warrior[] warriors = new Warrior[2];
+        warriors[0] = archer;
+        warriors[1] = soldier;
+            warriors[2] = longBow;
+
+
+        System.out.println(archer);
+    }
+
+
+    public Game(Arsenal arsenal) {
+        this.arsenal = arsenal;
+    }
+
     public static void main(String[] varArgs) {
         System.out.println("Welcome to the warrior game");
 
@@ -21,25 +46,5 @@ public class Game {
         Game obj = (Game) context.getBean("game1");
         obj.start();
     }
-
-
-
-    private Arsenal arsenal;
-
-    public Game(Arsenal arsenal) {
-        this.arsenal = arsenal;
-    }
-
-    public void start() {
-        Warrior archer = new Warrior("archer", arsenal.bowAndArrow());
-        Warrior soldier = new Warrior("soldier", arsenal.sword("excalibur"));
-
-        archer.strike();
-        soldier.strike();
-        archer.toString();
-
-        System.out.println(archer);
-    }
-
 
 }

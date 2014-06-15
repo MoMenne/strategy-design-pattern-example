@@ -7,5 +7,6 @@ package com.mikemenne.launchcode.strategy;
  */
 public interface Weapon {
 
-    public void strike();
+    public void strike() throws WarriorException;
+
 }
