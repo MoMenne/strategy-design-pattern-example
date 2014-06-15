@@ -28,4 +28,9 @@ public class Warrior {
     public void strike() {
         weapon.strike();
     }
+
+    @Override
+    public java.lang.String toString() {
+        return String.format("I am an %s using a %s", name, weapon);
+    }
 }
